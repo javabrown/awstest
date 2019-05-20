@@ -14,12 +14,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 public class Controller {
     @RequestMapping("/")
-    public String home(){
-        return "AWS Test Home";
+    public java.util.Map home() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("ping-service", "Hello");
+        map.put("server-date", new java.util.Date().toString());
+        return map;
     }
 
     @RequestMapping(value="/states", method = RequestMethod.GET)
